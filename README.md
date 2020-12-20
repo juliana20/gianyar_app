@@ -18,7 +18,7 @@
   ```
 4) Now run your gianyar_app project in browser.
   ```sh
-  http://localhost:8080
+  http://localhost:8000
   ```
 
 ### What I used?
