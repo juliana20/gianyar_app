@@ -57,6 +57,24 @@
         </select>
       </div>
   </div>
+  <div class="form-group">
+    <label for="name" class="col-sm-3 control-label tengah2">Lintang</label>
+    <div class="col-md-9">
+      <input type="text" class="form-control" name="f[lintang]" value="{{ @$item->lintang }}" placeholder="Lintang" autofocus required="">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="name" class="col-sm-3 control-label tengah2">Bujur</label>
+    <div class="col-md-9">
+      <input type="text" class="form-control" name="f[bujur]" value="{{ @$item->bujur }}" placeholder="Bujur" autofocus required="">
+    </div>
+  </div>
+    <div class="form-group">
+    <label for="name" class="col-sm-3 control-label tengah2">Keterangan</label>
+    <div class="col-md-9">
+      <input type="text" class="form-control" name="f[keterangan]" value="{{ @$item->keterangan }}" placeholder="Keterangan" autofocus required="">
+    </div>
+  </div>
   <div class="modal-footer" style="border-top: 0px;">
     <button type="button" class="btn btn-danger tombolform" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i> Batal</button>
     <button type="submit" class="btn btn-success tombolform"><i class="fa fa-check" aria-hidden="true"></i> @if($is_edit) Perbarui @else Simpan @endif</button> 
