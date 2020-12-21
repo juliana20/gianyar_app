@@ -22,12 +22,15 @@ services:
       - 8080:8080
 
   app:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
     image: juliana20/gianyar_app
     container_name: app
     links:
       - db
     restart: always
     ports:
-      - 8081:80
+      - 80:80
     volumes:
       - ./src:/var/www/html/public

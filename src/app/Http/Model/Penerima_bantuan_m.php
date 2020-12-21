@@ -20,7 +20,10 @@ class Penerima_bantuan_m extends Model
     {
 		$query = DB::table('penerima_bantuan as a')
 				->leftjoin('kecamatan as b','a.kecamatan_id','=','b.id')
-				->leftjoin('desa as c','a.desa_id','=','c.desa_id')
+				->join('desa as c', function($join){
+					$join->on('a.desa_id','=','c.desa_id');
+					$join->on('a.kecamatan_id','=','c.desa_kecamatan_id');
+				})
 				->leftjoin('jenis_bantuan as d','a.jenis_bantuan_id','=','d.id')
 				->select('a.*','b.nama as kecamatan','c.desa_nama as desa','d.nama as jenis_bantuan')
 				->get();
@@ -31,7 +34,10 @@ class Penerima_bantuan_m extends Model
     {
 		$query = DB::table('penerima_bantuan as a')
 				->leftjoin('kecamatan as b','a.kecamatan_id','=','b.id')
-				->leftjoin('desa as c','a.desa_id','=','c.desa_id')
+				->join('desa as c', function($join){
+					$join->on('a.desa_id','=','c.desa_id');
+					$join->on('a.kecamatan_id','=','c.desa_kecamatan_id');
+				})
 				->leftjoin('jenis_bantuan as d','a.jenis_bantuan_id','=','d.id')
 				->select('a.*','b.nama as kecamatan','c.desa_nama as desa','d.nama as jenis_bantuan')
 				->where('a.id', $id)
