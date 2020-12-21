@@ -19,7 +19,7 @@ class PenerimaBantuan extends Controller
         $this->model = new Penerima_bantuan_m;
         $this->model_kecamatan = new Kecamatan_m;
         $this->model_desa = new Desa_m;
-        $this->model_jenis_bantuan = nsew Jenis_bantuan_m;
+        $this->model_jenis_bantuan = new Jenis_bantuan_m;
     }
     /**
      * Display a listing of the resource.
@@ -66,7 +66,7 @@ class PenerimaBantuan extends Controller
     
     public function datatables_collection()
     {
-        $data = $this->model->get_all();
+        $data = $this->model->get_collection();
         return Datatables::of($data)->make(true);
     }
 
@@ -94,14 +94,20 @@ class PenerimaBantuan extends Controller
     public function edit(Request $request, $id)
     {
         $data = [
-            'item'       => $this->model->get_one($id),
+            'item'       => $this->model->get_one_collection( $id ),
+            'kecamatan'         => $this->model_kecamatan->get_all(),
+            'desa'              => $this->model_desa->get_all(),
+            'jenis_bantuan'     => $this->model_jenis_bantuan->get_all(),
             'is_edit'    => TRUE,
-            'submit_url' => url()->current()
+            'submit_url' => 'penerima_bantuan/update/'.$id
         ];
 
-        //jika form sumbit
-        if($request->post())
-        {
+        
+        return view('penerima_bantuan.form', $data);
+    }
+
+    public function update(Request $request, $id)
+    {
             $item = $request->input('f');
             $insert = $this->model->update_data($item, $id);
 
@@ -114,10 +120,8 @@ class PenerimaBantuan extends Controller
                 alert()->warning('Data penerima bantuan gagal diperbarui!', 'Perhatian!')->persistent('OK');
             }
             return redirect('penerima_bantuan');    
-        }
-        
-        return view('penerima_bantuan.form', $data);
     }
+    
 
     /**
      * Remove the specified resource from storage.

@@ -31,6 +31,7 @@ Route::post('/user/{id}/edit','User@edit');
 Route::resource('/penerima_bantuan','PenerimaBantuan');
 Route::post('/penerima_bantaun/store','PenerimaBantuan@store');
 Route::post('/penerima_bantaun/{id}/edit','PenerimaBantuan@edit');
+Route::post('/penerima_bantuan/update/{id}','PenerimaBantuan@update')->name('penerima_bantaun.update');
 
 //DATATABLES COLLECTIONS
 Route::get('/datatables-user','User@datatables_collection')->name('user.datatables-collection');

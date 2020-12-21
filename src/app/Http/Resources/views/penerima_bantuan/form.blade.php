@@ -28,9 +28,8 @@
     <label for="name" class="col-sm-3 control-label tengah2">Kecamatan</label>
       <div class="col-md-9">
         <select name="f[kecamatan_id]" class="form-control" required="">
-          <option value="" disabled="" selected="" hidden="">- Pilih Kecamatan -</option>
           <?php foreach($kecamatan as $dt): ?>
-            <option value="<?php echo @$dt->id ?>" <?= @$dt->id == @$item->kecamatan_id ? 'selected': null ?>><?php echo @$dt->desc ?></option>
+            <option value="<?php echo @$dt->id ?>" <?= @$dt->id == @$item->kecamatan_id ? 'selected': null ?>><?php echo @$dt->nama ?></option>
           <?php endforeach; ?>
         </select>
       </div>
@@ -39,9 +38,8 @@
     <label for="name" class="col-sm-3 control-label tengah2">Desa</label>
       <div class="col-md-9">
         <select name="f[desa_id]" class="form-control" required="">
-          <option value="" disabled="" selected="" hidden="">- Pilih Desa -</option>
           <?php foreach($desa as $dt): ?>
-            <option value="<?php echo @$dt->id ?>" <?= @$dt->id == @$item->desa_id ? 'selected': null ?>><?php echo @$dt->desa_nama ?></option>
+            <option value="<?php echo @$dt->desa_id ?>" <?= @$dt->desa_id == @$item->desa_id ? 'selected': null ?>><?php echo @$dt->desa_nama ?></option>
           <?php endforeach; ?>
         </select>
       </div>
@@ -49,13 +47,31 @@
   <div class="form-group">
     <label for="name" class="col-sm-3 control-label tengah2">Jenis Bantuan</label>
       <div class="col-md-9">
-        <select name="f[jenis_bantuan]" class="form-control" required="">
+        <select name="f[jenis_bantuan_id]" class="form-control" required="">
           <option value="" disabled="" selected="" hidden="">- Pilih Jenis Bantuan -</option>
-          <?php foreach($desa as $dt): ?>
+          <?php foreach($jenis_bantuan as $dt): ?>
             <option value="<?php echo @$dt->id ?>" <?= @$dt->id == @$item->jenis_bantuan_id ? 'selected': null ?>><?php echo @$dt->nama ?></option>
           <?php endforeach; ?>
         </select>
       </div>
+  </div>
+  <div class="form-group">
+    <label for="name" class="col-sm-3 control-label tengah2">Lintang</label>
+    <div class="col-md-9">
+      <input type="text" class="form-control" name="f[lintang]" value="{{ @$item->lintang }}" placeholder="Lintang" autofocus required="">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="name" class="col-sm-3 control-label tengah2">Bujur</label>
+    <div class="col-md-9">
+      <input type="text" class="form-control" name="f[bujur]" value="{{ @$item->bujur }}" placeholder="Bujur" autofocus required="">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="name" class="col-sm-3 control-label tengah2">Keterangan</label>
+    <div class="col-md-9">
+      <input type="text" class="form-control" name="f[keterangan]" value="{{ @$item->keterangan }}" placeholder="Keterangan" autofocus required="">
+    </div>
   </div>
   <div class="modal-footer" style="border-top: 0px;">
     <button type="button" class="btn btn-danger tombolform" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i> Batal</button>

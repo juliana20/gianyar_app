@@ -40,7 +40,7 @@
 </div>
 <!-- MODAL TAMBAH & EDIT--> 
 @include('modal.header.modal_create')
-{{-- @include('penerima_bantuan.form') --}}
+@include('penerima_bantuan.form')
 @include('modal.header.modal_edit')
 
 <!-- DataTable -->
@@ -83,7 +83,7 @@
 											}
 							},
               { 
-										data: "nomor_kkk", 
+										data: "nomor_kk", 
 										render: function ( val, type, row ){
 												return val
 											}
@@ -101,19 +101,19 @@
 											}
 							},
               { 
-										data: "desa_id", 
+										data: "desa", 
                     render: function ( val, type, row ){
 												return val
 											}
 							},
               { 
-										data: "kecamatan_id", 
+										data: "kecamatan", 
                     render: function ( val, type, row ){
 												return val
 											}
 							},
               { 
-										data: "jenis_bantuan_id", 
+										data: "jenis_bantuan", 
                     render: function ( val, type, row ){
 												return val
 											}
