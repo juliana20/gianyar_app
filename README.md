@@ -5,7 +5,7 @@
   Move towards your webroot folder.
   Following path in our project.
   ```sh
-  htdocs/gianyar_app/
+  gianyar_app/
   ```
   
   We have to composer install from command prompt.
@@ -23,8 +23,8 @@
 
 ### What I used?
 
-1) **Laravel** 7.29.x PHP Framework (https://laravel.com) 
-2) **PHP** 7.2.5.x
+1) **Laravel** 5.5.x PHP Framework (https://laravel.com) 
+2) **PHP** 7.2.28.x
 
 
 
