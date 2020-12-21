@@ -19,14 +19,15 @@ class PenerimaBantuan extends Controller
         $this->model = new Penerima_bantuan_m;
         $this->model_kecamatan = new Kecamatan_m;
         $this->model_desa = new Desa_m;
-        $this->model_jenis_bantuan = new Jenis_bantuan_m;
+        $this->model_jenis_bantuan = nsew Jenis_bantuan_m;
     }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-   public function index(){
+   public function index()
+   {
             $item = [
                 'alamat'          => null,
                 'desa_id'       => null,
@@ -42,9 +43,9 @@ class PenerimaBantuan extends Controller
 
             $data = array(
                 'item'              => (object) $item,
-                // 'kecamatan'         => $this->model_kecamatan->get_all(),
-                // 'desa'              => $this->model_desa->get_all(),
-                // 'jenis_bantuan'     => $this->model_jenis_bantuan->get_all(),
+                'kecamatan'         => $this->model_kecamatan->get_all(),
+                'desa'              => $this->model_desa->get_all(),
+                'jenis_bantuan'     => $this->model_jenis_bantuan->get_all(),
                 'title'             => 'Data Penerima Bantuan |',
                 'header'            => 'LIST DATA PENERIMA BANTUAN',
                 'headerModalTambah' => 'FORM TAMBAH DATA PENERIMA BANTUAN',
@@ -78,7 +79,7 @@ class PenerimaBantuan extends Controller
 
  public function store(Request $request)
     {
-        $header = $request->input('f');
+        $item = $request->input('f');
         $this->model->insert_data($item);
         alert()->success('Data penerima bantuan berhasil ditambah!', 'Sukses!');
         return redirect('penerima_bantuan');    
@@ -101,40 +102,21 @@ class PenerimaBantuan extends Controller
         //jika form sumbit
         if($request->post())
         {
-            $header = $request->input('f');
-            //jika password berubah
-            if($header['password'] != $data['item']->password)
-            {
-                $item = [
-                    'nama'          => $header['nama'],
-                    'jabatan'       => $header['jabatan'],
-                    'username'      => $header['username'],
-                    'password'      => bcrypt($header['password'])
-                ];
-            }
-            else
-            {
-                $item = [
-                    'nama'          => $header['nama'],
-                    'jabatan'       => $header['jabatan'],
-                    'username'      => $header['username'],
-                ];
-            }
-           
+            $item = $request->input('f');
             $insert = $this->model->update_data($item, $id);
 
             if($insert)
             {
-                alert()->success('Data user berhasil diperbarui!', 'Sukses!');
+                alert()->success('Data penerima bantuan berhasil diperbarui!', 'Sukses!');
             }
             else
             {
-                alert()->warning('Data user gagal diperbarui!', 'Perhatian!')->persistent('OK');
+                alert()->warning('Data penerima bantuan gagal diperbarui!', 'Perhatian!')->persistent('OK');
             }
-            return redirect('user');    
+            return redirect('penerima_bantuan');    
         }
         
-        return view('user.form', $data);
+        return view('penerima_bantuan.form', $data);
     }
 
     /**
@@ -145,8 +127,8 @@ class PenerimaBantuan extends Controller
      */
     public function delete($id)
     {
-        $user = $this->model->get_one($id);
-        return view('user.delete', compact('user'));
+        $item = $this->model->get_one($id);
+        return view('penerima_bantuan.delete', compact('item'));
     }
     public function destroy(Request $request, $id)
     {
@@ -154,7 +136,7 @@ class PenerimaBantuan extends Controller
             'status'    => 'Tidak Aktif'
         ];
         $this->model->update_data($data,$id);
-        alert()->success('Data user berhasil dihapus!', 'Sukses!');
+        alert()->success('Data penerima bantuan berhasil dihapus!', 'Sukses!');
         return Redirect::back(); 
     }
 
