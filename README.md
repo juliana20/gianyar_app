@@ -20,6 +20,10 @@
   ```sh
   http://localhost:8000
   ```
+5) Run your gianyar_app in docker
+  ```sh
+  docker-compose up
+  ```
 
 ### What I used?
 
