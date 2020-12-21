@@ -124,7 +124,7 @@
 										orderable: false,
 										render: function ( val, type, row ){
 												var buttons = '<div class="btn-group" role="group">';
-													buttons += '<a title=\"Ubah Data User\" data-toggle=\"modal\" data-target=\"#'+id_modal_edit+'\" data-id=\"'+val+'\" class=\"btn btn-info btn-xs\"><i class=\"fa fa-pencil\"></i> Edit</a>';
+													buttons += '<a title=\"Ubah Data Penerima Bantuan\" data-toggle=\"modal\" data-target=\"#'+id_modal_edit+'\" data-id=\"'+val+'\" class=\"btn btn-info btn-xs\"><i class=\"fa fa-pencil\"></i> Edit</a>';
 													buttons += "</div>";
 												return buttons
 											}

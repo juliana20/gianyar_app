@@ -74,6 +74,13 @@
                             <option value="2020" selected>2020</option>
                           </select>
                         </div>
+                        <div class="col-md-2 pull-right">
+                          <select name="jenis_bantuan" id="jenis_bantuan" class="form-control">
+                          @foreach($jenis_bantuan as $jb)
+                            <option value="{{$jb->id}}">{{$jb->nama}}</option>
+                           @endforeach
+                          </select>
+                        </div>
                         <div class="graph">
                           <div class="chart" id="bar-chart"></div>
                         </div>
@@ -142,9 +149,9 @@
                   resize: true,
                   data: data,
                   barColors: ['#55ce63', '#03a9f3'],
-                  xkey: 'Bulan',
-                  ykeys: ['Pemasukan', 'Pengeluaran'],
-                  labels: ['PEMASUKAN', 'PENGELUARAN'],
+                  xkey: 'Bantuan',
+                  ykeys: ['Menerima', 'Belum Menerima'],
+                  labels: ['MENERIMA', 'BELUM MENERIMA'],
                   hideHover: 'auto',
                   xLabelAngle: 20,
               });
