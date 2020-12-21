@@ -40,7 +40,7 @@
 </div>
 <!-- MODAL TAMBAH & EDIT--> 
 @include('modal.header.modal_create')
-{{-- @include('penerima_bantuan.form') --}}
+@include('penerima_bantuan.form')
 @include('modal.header.modal_edit')
 
 <!-- DataTable -->
