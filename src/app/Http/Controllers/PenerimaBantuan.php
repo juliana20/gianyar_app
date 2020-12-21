@@ -19,7 +19,7 @@ class PenerimaBantuan extends Controller
         $this->model = new Penerima_bantuan_m;
         $this->model_kecamatan = new Kecamatan_m;
         $this->model_desa = new Desa_m;
-        $this->model_jenis_bantuan = nsew Jenis_bantuan_m;
+        $this->model_jenis_bantuan = new Jenis_bantuan_m;
     }
     /**
      * Display a listing of the resource.
